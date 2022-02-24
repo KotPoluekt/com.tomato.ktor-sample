@@ -1,7 +1,7 @@
 package com.tomato.plugins
 
 import com.tomato.entities.ToDoDraft
-import com.tomato.repository.InMemoryToDoRepository
+import com.tomato.repository.MySqlToDoRepository
 import com.tomato.repository.ToDoRepository
 import io.ktor.http.*
 import io.ktor.server.routing.*
@@ -13,7 +13,7 @@ fun Application.configureRouting() {
 
     routing {
 
-        val repository: ToDoRepository = InMemoryToDoRepository()
+        val repository: ToDoRepository = MySqlToDoRepository()
 
         get("/") {
             call.respondText("Hello Fin Server!")
